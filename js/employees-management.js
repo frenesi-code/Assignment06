@@ -27,6 +27,8 @@ function displayEmployees() {
     
         console.log('');
     }
+    
+    displayNumberOfEmploees(employees);
 
 }
 
@@ -64,7 +66,7 @@ function remove(employeeID) {
 
             location.reload();
         }
-    }
+    }    
 }
 
 function update(employeeID) {
@@ -88,6 +90,10 @@ function update(employeeID) {
             location.reload();
         }
     }
+}
+
+function displayNumberOfEmploees(employees) {
+    document.getElementById("numberOfEmployees").innerHTML = 'Showing ' + employees.length + ' Employees'; 
 }
 
 function main() {    
@@ -146,6 +152,8 @@ function main() {
     name.innerHTML = "Name";
     title.innerHTML = "Title";
     extension.innerHTML = "Extension";
+
+    displayNumberOfEmploees(employees); 
 
     for (const [index, employee] of employees.entries()) {        
         let row = table.insertRow(index + 1);
