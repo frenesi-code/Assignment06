@@ -55,8 +55,7 @@ function checkFields() {
 
     if (id.value == "") {                        
         id.classList.add("error");
-        errorText.innerHTML = "Id is Mandatory";
-        console.log("what");
+        errorText.innerHTML = "Id is Mandatory";        
         return false
     } 
     
@@ -97,9 +96,7 @@ function add() {
     if (!checkFields()) {        
         return;
     }
-
-    console.log("it should not ne heeeeeeee");
-
+    
     employees.push(newEmployee);
 
     localStorage.setItem('employees', JSON.stringify(employees)); 
