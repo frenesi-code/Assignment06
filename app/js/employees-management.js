@@ -34,9 +34,58 @@ function displayEmployees() {
 
 function displayEmployees(employee, message) {    
     console.log(employee.id + ' ' + employee.name + ' (' +  employee.title + ') ' + '$' + employee.extension + (message ? message : ''));    
+    location.reload();
+}
+
+function checkFields() {    
+    
+    let errorText = document.getElementById("error");
+    
+    errorText.classList.add("errorText");
+
+    let id = document.getElementById("IDInput");
+    let name = document.getElementById("EmployeeNameInput");
+    let title = document.getElementById("EmployeeTitleInput");
+    let extension = document.getElementById("EmployeeExtensionInput");
+    
+    id.classList.remove("error");
+    name.classList.remove("error");
+    title.classList.remove("error");
+    extension.classList.remove("error");
+
+    if (id.value == "") {                        
+        id.classList.add("error");
+        errorText.innerHTML = "Id is Mandatory";
+        console.log("what");
+        return false
+    } 
+    
+    if (name.value == "") {        
+        name.classList.add("error");       
+        errorText.innerHTML = "Name is Mandatory";
+
+        return false
+    }
+    
+    if (title.value == "") {        
+        title.classList.add("error");
+        errorText.innerHTML = "Title is Mandatory";
+
+        return false
+    }
+    
+    if (extension.value == "") {       
+        extension.classList.add("error");
+        errorText.innerHTML = "Extension is Mandatory";
+        
+        return false        
+    }    
+
+    return true;
 }
 
 function add() {
+        
     let employees = JSON.parse(localStorage.getItem('employees'));
     let newEmployee = {};
     
@@ -44,7 +93,13 @@ function add() {
     newEmployee.name = document.getElementById("EmployeeNameInput").value;
     newEmployee.title = document.getElementById("EmployeeTitleInput").value; 
     newEmployee.extension = parseInt(document.getElementById("EmployeeExtensionInput").value);
-        
+
+    if (!checkFields()) {        
+        return;
+    }
+
+    console.log("it should not ne heeeeeeee");
+
     employees.push(newEmployee);
 
     localStorage.setItem('employees', JSON.stringify(employees)); 
