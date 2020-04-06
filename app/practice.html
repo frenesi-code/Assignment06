@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignment 06 - DOM Practice</title>
-    <script src="js/dom-practice.js"></script>
-</head>
-<body>
     
+    <style>        
+        span {          
+          padding: 20px;
+          font-size: 1em;
+        }
+
+        button:not(.btnExcept) {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 7px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="js/dom-practice.js"></script>
+    
+    <script>
+        // Step 5
+        
+        /*
+        function OnLoad() {
+            document.getElementById("btnE").addEventListener("click", function() {
+                alert('I have been clicked Btn D');                                
+            });
+        }
+        */
+
+    </script>
+</head>
+<body onload="OnLoad();">
+    <button id="btnA" onclick="BtnAClick();"> Btn 1</button>
+    <hr>
+    <button id="btnB"> Btn 2 </button>
+    <hr>
+    <button id="btnC"> Btn 3 </button>
+    <hr>
+    <button id="btnD"> Btn 4 </button>
+    <hr>
+    <button id="btnE"> Btn 5 </button>
+    <hr>
+    <a id="redirect" href="http://google.com">Visit Google</a>
+    <hr>
+    <input id="myInput" type="text">
+    <button class="btnExcept" id="btnF"> Btn 7 </button>
+    <hr>
+    <button id="btnG"> Btn 8 </button>
+    <hr>
+    <button id="btnH"> Start </button>
+    <button id="btnI"> Stop </button>
+    <hr>
+    <select id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <button class="btnExcept" id="btnJ"> Select </button></br></br>
 </body>
 </html>
