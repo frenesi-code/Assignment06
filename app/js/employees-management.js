@@ -33,7 +33,7 @@ function displayEmployees() {
 }
 
 function displayEmployees(employee, message) {    
-    console.log(employee.id + ' ' + employee.name + ' (' +  employee.title + ') ' + '$' + employee.extension + (message ? message : ''));    
+    console.log(employee.id + ' ' + employee.name + ' (' +  employee.title + ') ' + ' ' + employee.extension + ' ' + (message ? message : ''));    
     location.reload();
 }
 
@@ -114,9 +114,7 @@ function remove(employeeID) {
             employees.splice(index, 1);            
             displayEmployees(employee, ' was deleted.');
             localStorage.setItem('employees', JSON.stringify(employees)); 
-            console.log('');
-
-            location.reload();
+            console.log('');            
         }
     }    
 }
@@ -130,16 +128,15 @@ function update(employeeID) {
     newEmployee.id = empID;
     newEmployee.name = window.prompt("Enter the employee's name");
     newEmployee.title = window.prompt("Enter the employee's title");
-    newEmployee.extenstion = window.prompt("Enter the employee's extension");
-
+    newEmployee.extension = parseInt(window.prompt("Enter the employee's extension"));
+    
     for (const [index, employee] of employees.entries()) {
         if (employee.id === empID) {            
-            employee.splice(index, 1, newEmployee);
+            console.log("employee ==> ", employee);
+            employees.splice(index, 1, newEmployee);
             displayEmployees(employee, ' was updated.');
             localStorage.setItem('employees', JSON.stringify(employees)); 
-            console.log('');
-
-            location.reload();
+            console.log('');            
         }
     }
 }
@@ -215,7 +212,7 @@ function main() {
         let extension = row.insertCell(3);
         let updateIcon = row.insertCell(4);
         let deleteIcon = row.insertCell(5);
-        
+    
         id.innerHTML = employee.id;
         name.innerHTML = employee.name;
         title.innerHTML = employee.title;
